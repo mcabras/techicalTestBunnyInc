@@ -6,7 +6,6 @@ server:
     enabled: true
     mimeTypes: text/html,text/xml,text/plain,application/json,application/xml
     
-
 bunny:
   bio:
     token: 502658d3-18ac-4cf9-99bc-3ec4c87f89f6

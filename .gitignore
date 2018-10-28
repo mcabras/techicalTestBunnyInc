@@ -1,0 +1,19 @@
+# Java binaries
+*.class
+**/target/
+
+# Package Files #
+*.jar
+
+# Eclipse files #
+**/.classpath
+**/.project
+**/.settings
+**/.factorypath
+**/.springBeans
+
+# Logs #
+**/logs
+
+# Mac files #
+**/.DS_Store

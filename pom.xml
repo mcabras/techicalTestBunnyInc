@@ -14,6 +14,7 @@
 	<modules>
 		<module>bunny-integration-api</module>
 		<module>bunny-integration-services</module>
+		<module>bunny-integration-flow</module>
 	</modules>
 
 	<parent>

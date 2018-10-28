@@ -1,0 +1,22 @@
+server:
+  port: 8082
+  tomcat:
+    basedir: tmp
+  compression:
+    enabled: true
+    mimeTypes: text/html,text/xml,text/plain,application/json,application/xml
+    
+
+bunny:
+  bio:
+    token: 502658d3-18ac-4cf9-99bc-3ec4c87f89f6
+    urlapi: https://torreco.github.io/bios/{personId}/jobs
+  linkedin:
+    urlapi: https://www.linkedin.com/oauth/v2/accessToken
+    urlauth: https://www.linkedin.com/oauth/v2/authorization
+    responsetype: code
+    redirecturl: http://localhost:8082/integration
+    clientid: 783pbk2tx4f5c5
+    state: DCEeFWf45A53sdfKef424
+    urlaccess: https://www.linkedin.com/oauth/v2/accessToken
+    clientsecret: C8snY23SGLiulCQB

@@ -8,8 +8,8 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>bunny-integration-services</artifactId>
-	<name>bunny-integration-services</name>
+	<artifactId>bunny-integration-flow</artifactId>
+	<name>bunny-integration-flow</name>
 
 	<dependencies>
 		<dependency>
@@ -32,9 +32,8 @@
 			<version>${glasnost.orika.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.bunny.integration</groupId>
-			<artifactId>bunny-integration-flow</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-integration</artifactId>
 		</dependency>
 	</dependencies>
 

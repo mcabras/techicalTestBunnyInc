@@ -14,7 +14,7 @@ bunny:
     urlapi: https://www.linkedin.com/oauth/v2/accessToken
     urlauth: https://www.linkedin.com/oauth/v2/authorization
     responsetype: code
-    redirecturl: http://localhost:8082/integration
+    redirecturl: http://localhost:8082/profile-page
     clientid: 783pbk2tx4f5c5
     state: DCEeFWf45A53sdfKef424
     urlaccess: https://www.linkedin.com/oauth/v2/accessToken

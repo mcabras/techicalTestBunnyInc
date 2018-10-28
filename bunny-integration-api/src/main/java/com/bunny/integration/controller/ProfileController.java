@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Component(value = "profile")
 @ELBeanName(value = "profile")
-@Join(path = "/profile", to = "/profile.jsf")
+@Join(path = "/profile", to = "/profile-page.jsf")
 @Slf4j
 public class ProfileController {
 

@@ -39,7 +39,7 @@ public class GetInformationHandler implements GenericHandler<RequestDto> {
 
 			HttpEntity<?> entityBio = new HttpEntity<>(headersToSend);
 
-			HttpEntity<BioResponseJobs> responseEntityBio = webRestTemplate.exchange(path, HttpMethod.POST, entityBio, BioResponseJobs.class);
+			HttpEntity<BioResponseJobs> responseEntityBio = webRestTemplate.exchange(path, HttpMethod.GET, entityBio, BioResponseJobs.class);
 
 			BioResponseJobs result = responseEntityBio.getBody();
 			

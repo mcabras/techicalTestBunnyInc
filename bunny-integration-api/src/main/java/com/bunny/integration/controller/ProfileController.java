@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import com.bunny.integration.dto.ProfileData;
 import com.bunny.integration.dto.ResultDto;
+import com.bunny.integration.service.IAuthLinkedIn;
 import com.bunny.integration.service.IMergeProfilesService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -23,20 +24,29 @@ public class ProfileController {
 
 	private ProfileData objProfile = new ProfileData();
 	
+	private ResultDto response = new ResultDto();
+
 	@Autowired
-	private IMergeProfilesService mergeProfile; 
-	
+	private IMergeProfilesService mergeProfile;
+
+	@Autowired
+	private IAuthLinkedIn authLinkedIn;
+
 	public void merge() {
 		FacesContext context = FacesContext.getCurrentInstance();
-        Map<String, String> paramMap = context.getExternalContext().getRequestParameterMap();
-        String accessToken = paramMap.get("code");
-		
-        ResultDto objResult = mergeProfile.mergeProfiles(accessToken, objProfile.getPersonId());
-        log.info(objResult.toString());
+		Map<String, String> paramMap = context.getExternalContext().getRequestParameterMap();
+		String code = paramMap.get("code");
+		String accessToken = authLinkedIn.accessToken(code);
+		response = mergeProfile.mergeProfiles(accessToken, objProfile.getPersonId());
+		log.info(response.toString());
 	}
 
 	public ProfileData getProfileData() {
 		return objProfile;
 	}
 	
+	public ResultDto getResponse() {
+		return response;
+	}
+
 }

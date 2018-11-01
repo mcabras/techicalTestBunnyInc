@@ -11,9 +11,34 @@
 			<p:panel header="Trello Bio PersonId: ">
 				<h:panelGrid columns="1">
 					<p:inputText id="personId" value="#{profile.profileData.personId}" />
-					<h:commandButton value="Merge" action="#{profile.merge}" />
+					<h:commandButton value="Merge profiles" action="#{profile.merge}" />
 				</h:panelGrid>
 			</p:panel>
+			<p:panel header="Merged Profile">
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Id " />
+					<h:outputLabel value="#{profile.response.id}" />
+					<h:outputLabel value="First Name " />
+					<h:outputLabel value="#{profile.response.firstName}" />
+					<h:outputLabel value="Last Name " />
+					<h:outputLabel value="#{profile.response.lastName}" />
+					<h:outputLabel value="Headline " />
+					<h:outputLabel value="#{profile.response.headline}" />
+					<h:outputLabel value="Category " />
+					<h:outputLabel value="#{profile.response.category}" />
+					<h:outputLabel value="Role " />
+					<h:outputLabel value="#{profile.response.role}" />
+					<h:outputLabel value="From Month " />
+					<h:outputLabel value="#{profile.response.fromMonth}" />
+					<h:outputLabel value="From Year " />
+					<h:outputLabel value="#{profile.response.fromYear}" />
+					<h:outputLabel value="To Month " />
+					<h:outputLabel value="#{profile.response.toMonth}" />
+					<h:outputLabel value="To Year " />
+					<h:outputLabel value="#{profile.response.toYear}" />
+				</h:panelGrid>
+			</p:panel>
+
 		</h:form>
 	</ui:define>
 </ui:composition>

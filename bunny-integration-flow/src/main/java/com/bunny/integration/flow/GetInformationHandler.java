@@ -39,32 +39,28 @@ public class GetInformationHandler implements GenericHandler<RequestDto> {
 
 			HttpEntity<?> entityBio = new HttpEntity<>(headersToSend);
 
-			HttpEntity<BioResponseJobs> responseEntityBio = webRestTemplate.exchange(path, HttpMethod.GET, entityBio, BioResponseJobs.class);
+			HttpEntity<BioResponseJobs[]> responseEntityBio = webRestTemplate.exchange(path, HttpMethod.GET, entityBio, BioResponseJobs[].class);
 
-			BioResponseJobs result = responseEntityBio.getBody();
+			BioResponseJobs[] result = responseEntityBio.getBody();
 			
 			return MessageBuilder.withPayload(ResultDto.builder()
-					.category(result.getCategory())
-					.contributions(result.getContributions())
-					.fromMonth(result.getFromMonth())
-					.fromYear(result.getFromYear())
-					.location(result.getLocation())
-					.name(result.getName())
-					.toMonth(result.getToMonth())
-					.toYear(result.getToYear())
-					.role(result.getRole())
+					.category(result[0].getCategory())
+					.contributions(result[0].getContributions())
+					.fromMonth(result[0].getFromMonth())
+					.fromYear(result[0].getFromYear())
+					.location(result[0].getLocation())
+					.toMonth(result[0].getToMonth())
+					.toYear(result[0].getToYear())
+					.role(result[0].getRole())
 					.type(Constants.BIO)
 					.build())
 					.copyHeaders(headers).build();
 		}
 
 		if (StringUtils.equals(payload.getType(), Constants.LINKEDIN)) {
-			UriComponentsBuilder builderLinkedIn = UriComponentsBuilder
-					.fromHttpUrl(payload.getUrl())
-					.queryParam("format", "json");
-			
-			HttpHeaders headersToSend = new HttpHeaders();
-			headersToSend.add("Authorization", "Bearer " +payload.getAccessToken());
+			UriComponentsBuilder builderLinkedIn = UriComponentsBuilder.fromHttpUrl(payload.getUrl())
+					.queryParam("format", "json")
+					.queryParam("oauth2_access_token", payload.getAccessToken());
 
 			HttpEntity<?> entityLinked = new HttpEntity<>(new HttpHeaders());
 
@@ -72,14 +68,14 @@ public class GetInformationHandler implements GenericHandler<RequestDto> {
 					HttpMethod.GET, entityLinked, LinkedInResponse.class);
 
 			LinkedInResponse result = responseEntityLinked.getBody();
-			
-			return MessageBuilder.withPayload(ResultDto.builder()
-					.firstName(result.getFirstName())
-					.headline(result.getHeadline())
-					.id(result.getId())
-					.lastName(result.getLastName())
-					.type(Constants.LINKEDIN)
-					.build())
+
+			return MessageBuilder
+					.withPayload(ResultDto.builder()
+							.firstName(result.getFirstName())
+							.headline(result.getHeadline())
+							.id(result.getId())
+							.lastName(result.getLastName())
+							.type(Constants.LINKEDIN).build())
 					.copyHeaders(headers).build();
 		}
 

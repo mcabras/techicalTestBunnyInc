@@ -50,11 +50,6 @@
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>ma.glasnost.orika</groupId>
-			<artifactId>orika-core</artifactId>
-			<version>${glasnost.orika.version}</version>
-		</dependency>
 	</dependencies>
 
 </project>

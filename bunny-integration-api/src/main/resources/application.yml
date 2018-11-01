@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 5000
   tomcat:
     basedir: tmp
   compression:
@@ -8,13 +8,13 @@ server:
     
 bunny:
   bio:
-    token: 502658d3-18ac-4cf9-99bc-3ec4c87f89f6
-    urlapi: https://torreco.github.io/bios/{personId}/jobs
+    token: 1-99986e526eb10da13088e82a5c0add802e0fcafc-1-G2NIn6L492scP+pd3aAOQuuTH12iLBxHkLTk1Uls86bTTm2po3b1pY0gwLtLRmVetshVYcv+5cfv07iz3olOgjnyFYCs8v75HBcdNcgIDVdXHNs3SC2JMu5JVTSkvaqbSTleeMqkFKGmLmNYd4Fap0oG5l1TQ63URdwAFYGn41rz8T81U9Wr7H1v3z+jqdviL9kSJy7765vz907bKvsL+vBojVFB47e2CRggcGCG7wMhc5bJOsaiQgF5mL0Kv4Q3AQGCWIXP2F1C8V8knnRRrbqkgNMm0QUJAJBnvB+V6kiucLN7AuZMJ6CRQIEh33ef2pwooP7IPjY1qwG+VAFMqxdSQi0fZax493i78dx4t4+ZDe7TWMaVBFrNMra9IfEOtDpDEXQMczYlg3qI/glmkmzEEXJ62EQ6jpTfErpCWl3uVAaHQiZZAnWdYFj4fWxuaTD27qizNjXPFc2kMx9gE0AoYeZLzTGMOCMBXtoeQ68ugS375PcljqysOkM96P3BgXjmkaxO0N9knnzhLT+lzH4xl/x59oTqqk/TXQq3HZ4Dby+6v9Fml2DqUO2japz1rm/PUTcNzZY4th3+it7+9iMkyfGtHoxx+hd3xkyMyg+AOA5h0Q52UkPnYPu1LJetBWI1++zLp5QGSBzI35G7cvYOJVOBOdS1/4KOJPgt
+    urlapi: https://torre.bio/api/bios/{personId}/jobs
   linkedin:
-    urlapi: https://www.linkedin.com/oauth/v2/accessToken
+    urlapi: https://api.linkedin.com/v1/people/~?format=json
     urlauth: https://www.linkedin.com/oauth/v2/authorization
     responsetype: code
-    redirecturl: http://localhost:8082/profile
+    redirecturl: http://localhost:8080/profile
     clientid: 783pbk2tx4f5c5
     state: DCEeFWf45A53sdfKef424
     urlaccess: https://www.linkedin.com/oauth/v2/accessToken
